@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+
+     -->
+     <script>
+        console.log(16+'object'); //16object
+        console.log('7'*'4'); //28
+        console.log(1-'x'); //NaN
+        console.log(true+true); //2
+        console.log(2+null); //2
+        // 强制转换：
+        // 1.强制转为数值型
+        var n = Number('7');
+        var m = Number('7a');
+        console.log(typeof n);
+        console.log(n); //7
+        console.log(m); //NaN
+        console.log(Number(true)); //1
+        console.log(Number(undefined)); //NaN
+        console.log(Number(null)); //0
+        // 2.强制转为整型
+        // parseInt(); 常用于将字符串或者数字转为整型，其他的数据返回NaN,如果转化的字符串开头非数字，也是返回NaN
+        console.log(parseInt(1.5)); //1
+        console.log(parseInt('3.18')); //3
+        console.log(parseInt('6a')); //6
+        console.log(parseInt('a6')); //NaN
+        // 3.强制转为浮点型
+        // 用法和parseInt()基本一致，只是转为浮点型
+        console.log(parseFloat('3.14')); //3.14
+        console.log(parseFloat('6a')); //6
+        console.log(parseFloat('a6')); //NaN
+        // 4.强制将数值型或者布尔型转为字符串型
+        // element.toString()
+        var a = 10;
+        var b = a.toString();
+        console.log(typeof b);
+        console.log(b);
+        // 运算符：算术运算符，比较运算符，逻辑运算符，赋值运算符，三目运算符
+        // 算术运算符：+-*/ ++(自增) --(自减) %(取余)
+        console.log(a++); // 先打印a的值，再在原来的基础上+1
+        console.log(++a); // 先在原来的基础上+1，再打印
+        var num=3;
+        console.log(num-- + --num); //4 = 3 + 1
+        // 比较运算符：> < >= <= ==(等于) ===(全等) !=(不等于) !==(不全等于)
+        // 返回值是布尔类型的
+        // ===不但比较值的大小还会比较数据类型
+        console.log(3>'10'); //false 字符串转为数值10
+        console.log('3'>'10'); //true 两个字符串比较，比较的是首个字符的unicode码
+        console.log(3>'10a'); //false
+        console.log(3<'10a'); //false
+        console.log(3=='10a'); //false
+        console.log(3==='10a'); //false
+        // NaN和任何值比较包括自身都是false
+        // 逻辑运算符：&&(且) ||(或) !
+        // 逻辑短路：&& 当第一个条件为false时，就不需要执行第二个条件 flase
+        // || 当第一个条件为true时，就不需要执行第二个条件 true
+        // 查看以下程序是否会报错
+        var num = 3;
+        num>5 && console.log(a); //不会报错 
+        num<1 || console.log(a); //报错
+        // 声明变量保存一个年份，判断这个年份是否为闰年，如果是闰年打印ture，否则打印false
+        var year = 2100;
+        console.log(year%4==0 && year%100!=0 || year%400==0);
+        // 赋值运算符：+= -= *= /= %=
+        // 三目运算符：条件表达式?表达式1:表达式2
+        // 声明变量，分别保存用户输入的用户名和密码，如果用户名是adminum，密码是1234，打印登录成功，否则打印登录失败
+        var user = 'adminum';
+        var pwd = 1234;
+        console.log((user=='adminum' && pwd==1234)?'登录成功':'登录失败');
+        // 浏览器函数：
+        // alert(); // 弹出警示框
+        // prompt(); //弹出提示输入框
+        // alert('111');
+        // 点击确定获取输入框的值，如果没有输入值返回空字符null
+        // 点击取消返回值是null
+        // var c = prompt();
+        // console.log(c);
+        var m = parseInt(prompt('请输入数字')); //2
+        var n = parseInt(prompt('请再次输入数字')); //3
+        console.log(m+n); //23
+        // 两次弹出输入框 输入数字，两次输入的数字进行相加
+        // 流程控制：-选择执行
+        // if(条件表达式){ //条件表达式为这些(0 NaN "" undefined null)时，if为false
+        //     语句1
+        // } else{
+        //     语句2
+        // }
+        // 声明变量,保存商品单价,如果单价满5000打九折,最后打印商品的单价
+        var price = 1000;
+        if(price>=5000){
+            price=price*0.9;
+        } else{
+            price=price;
+        }
+        console.log(price);
+     </script>
+</body>
+</html>

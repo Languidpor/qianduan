@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="6.css">
+    <!-- 把外部的样式表连接起来 -->
+    <style>
+        /* 内部样式表 不建议 */
+        div{
+            /* 元素选择器 */
+            width: 200px;
+            height: 200px;
+            border:1px solid #0f0;
+        }
+        h4{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        css：层叠样式表，简称样式表
+        实现html内容和表现分离
+        提高代码的可重用性和可维护性
+        html构建网页的结构 css构建元素的样式
+        html是页面的内容组成 css是页面的表现
+        使用css样式表的方式：
+        1.内联样式：样式定义在单个html元素中
+        2.内部样式表：样式定义在html头元素中
+        3.外部样式表：定义一个外部的css文件
+        css选择器：
+        1.通用选择器：*
+        可以和任何元素匹配
+        2.
+     -->
+     <!-- 内联样式：不建议 -->
+     <p style="color:red">扬州大学</p>
+     <div>热热热热热</div>
+     <h2>李白</h2>
+     <!-- 内部样式设置背景颜色为red
+        内联样式设置背景颜色为green
+        外部样式设置背景颜色为blue
+        就近原则
+    -->
+     <h4 style="color:green">安琪拉</h4>
+</body>
+</html>

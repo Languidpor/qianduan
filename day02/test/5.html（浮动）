@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .center{
+            width:1000px;
+            /* height:200px; */
+            border:1px solid #000;
+            /* 父元素高度坍塌：子元素浮动 */
+            overflow:hidden;
+            /* 给父元素加溢出隐藏 */
+        }
+        .center div{
+            width:200px;
+            height:200px;
+            border:1px solid red;
+            float:left;
+        }
+        /* 浮动产生的影响2：对于后续元素显示有影响
+        解决方法：兼容各浏览器 样式必须放在浮动元素的父元素上
+        */
+        .clearFloat::after{
+            content:'';
+            display: block;
+            /* 将元素显示为块状 */
+            visibility: hidden;
+            height: 0;
+            clear:both;
+            /* 清楚左右两边浮动产生的影响 */
+        }
+        .clearFloat{
+            zoom: 1;
+        }
+        a{
+            width:200px;
+            height:200px;
+            background:red;
+        }
+    </style>
+</head>
+<body>
+    <!-- 浮动：
+        float:left,right,none
+     -->
+     <div class="center clearFloat">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+     </div>
+     <p>扬州大学</p>
+     <a href="">hello</a>
+</body>
+</html>

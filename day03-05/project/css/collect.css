@@ -1,0 +1,72 @@
+.col,.list{
+    width: 1000px;
+    /* height: 200px; */
+    margin: 0 auto;
+    border: 1px solid red;
+}
+.col p{
+    float: left;
+    font-size: 24px;
+    /* 文本加粗 */
+    font-weight: bold;
+    font-family: '微软雅黑';
+    width: 120px;
+    text-align: center;
+    border-right: 1px solid #bbb;
+}
+.col p:first-child{
+    color: #333;
+}
+.col p:last-child{
+    color: #bbb;
+    border-right-width: 0;
+}
+/* 当儿子不止两个时 */
+/* .col p:nth-child(n){
+    n是从1开始的
+    color: red;
+} */
+.clear{
+    width: 1000px;
+    height: 50px;
+    margin: 0 auto;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+}
+.clear button:first-child{
+    background-color: rgb(128, 53, 0);
+    color: #fff;
+    border: 0;
+    margin-top: 10px;
+    margin-left: 5px;
+    border-radius: 3px;
+    padding: 5px 10px;
+    float: left;
+}
+.clear button:last-child{
+    background-color: #ccc;
+    color: #fff;
+    border: 0;
+    margin-top: 10px;
+    margin-right: 5px;
+    border-radius: 3px;
+    padding: 5px 10px;
+    float: right;
+}
+.list{
+    background-color: #fff;
+}
+.list .list_1{
+    width: 230px;
+    height: 250px;
+    border: 1px solid #ccc;
+    margin-top: 12px;
+    margin-left: 12px;
+    color: #333;
+    font-size: 12px;
+    float: left;
+}
+.list_1 a{
+    color: #333;
+    float: right;
+}

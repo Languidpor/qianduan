@@ -1,0 +1,15 @@
+h2{
+    color:green;
+    background-color:red;
+    width:500px;
+    height:500px;
+}
+
+h4{
+    color:blue;
+}
+
+*{
+    font-size: 20px;
+    background-color: blue;
+}

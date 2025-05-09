@@ -1,0 +1,26 @@
+html,body{
+    width:100%;
+}
+/* 重置css样式 内外边距清零 */
+*{
+    padding:0;
+    margin:0;
+}
+li{
+    list-style: none;
+    /* 去掉列表项的样式 */
+}
+a{
+    text-decoration: none;
+    /* 去掉下划线 */
+}
+.clearFloat::after{
+    content:'';
+    display: block;
+    visibility: hidden;
+    height: 0;
+    clear:both;
+}
+.clearFloat{
+    zoom: 1;
+}

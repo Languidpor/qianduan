@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .d1{
+            width: 500px;
+            height: 500px;
+            border: 1px solid red;
+        }
+        .d1 div{
+            /* 后代 */
+            width:200px;
+            height:200px;
+            background-color:yellow;
+        }
+        .d1>div{
+            /* 子代 */
+            width:200px;
+            height:200px;
+            background-color:green;
+        }
+        .d1 .d2{
+            background-color: purple;
+        }
+        .d1 #d3{
+            background-color: aqua;
+        }
+        /* 伪类选择器：向某些选择器添加效果 作用:作为结合符，结合符左边是选择器，右边是伪类
+        :link 尚未访问连接
+        :visited 访问过连接
+        :hover 鼠标悬停在标签上时
+        */
+        .d1 div:first-child{
+            background-color: chocolate;
+        }
+        .d1 div:last-child{
+            background-color: darkgoldenrod;
+        }
+        a{
+            /* 一开始的状态 */
+            color: #999;
+        }
+        a:hover{
+            /* 悬停时的状态 */
+            color:red;
+        }
+        a:visited{
+            /* 访问过后的状态 */
+            color:green;
+        }
+        a:active{
+            /* 鼠标按下去之后的状态 */
+            color:purple;
+        }
+    </style>
+</head>
+<body>
+    <a href="1.html">百度一下</a>
+    <div class="d1">
+        <div class="d2"></div>
+        <div></div>
+    </div>
+    <!--
+        设置父元素的宽高 500*500
+        设置边框线
+        设置子元素的宽高 200*200
+        设置背景色
+    -->
+</body>
+</html>

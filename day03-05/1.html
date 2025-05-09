@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width:200px;
+            height: 200px;
+            border: 1px solid red;
+            /* position: relative;
+            top: 50px;
+            right: 30px; */
+            /* margin: 200px; */
+        }
+        .div1 div{
+            position: relative;
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            top: 20px;
+            left: 30px;
+        }
+        .p1{
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+            position: relative;
+        }
+        .p2{
+            width: 50px;
+            height: 50px;
+            background-color: green;
+            position: absolute;
+            /* 设置完决对定位的元素脱离正常文档流 */
+            top: 50px;
+            left: 100px;
+        }
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        h3{
+            width: 100px;
+            height: 30px;
+            background-color: pink;
+            position: fixed;
+            top: 50%;
+            right: 5%;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        定位：position: relative(相对定位)/
+        absolute(绝对定位)/fixed(固定定位)
+        偏移量：left top right bottom
+        相对定位：1.元素保持为定位前的形状
+        2.元素所占的空间仍然保留
+        3.元素相对于它原来的位置偏移某个距离
+        绝对定位：1.元素从普通流中完全移除，不占空间
+        2.使用偏移属性来固定该元素的位置
+        3.如果没有已经定位的祖先元素，则相对于最初的包含块定位：body
+        4.如果有已经定位的祖先元素，会根据祖先元素进行偏移
+        固定定位：fixed将元素固定在页面的某个位置
+        1.元素从普通流中完全移除，不占空间
+        2.当用户向下滚动页面时，元素框并不会随着移动
+    -->
+    <div class="div1">
+        <div></div>
+    </div>
+    <div class="p1">
+        <p class="p2"></p>
+    </div>
+    <h3>固定元素</h3>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        表单标签：form用于收集显示信息，并提交信息到服务器
+        <br>换行标签
+        <button>登录</button>按钮标签
+    -->
+    <!-- 文本输入框 -->
+    <!-- 
+        笔试题：
+        块级标签：一行显示一个标签，独占一行
+        p，h1-h6，div，ol，li，ul，table
+        行内标签：一行可以显示多个标签
+        span，a
+     -->
+    <P></P>
+    <p>王者</p>
+    <div>荣耀</div>
+    <span>虞姬</span>
+    <a href="">李白</a>
+    <!-- 补充：
+        1.html标签没有大小写的区分
+        2.html语言与平台无关，任何平台只需要安装浏览器
+        <hr>：水平线
+        相对路径：是从引用的网页文件本身开始构建的
+        ./表示当前所在的目录
+        ../表示回到上面一级父级文件夹下
+        /表示根目录
+    -->
+    <form action="">
+        <!-- readonly：只读 -->
+        <input type="text" placeholder="请输入用户名..."><br>
+        <input type="password" placeholder="请输入密码..."><br>
+        <!-- 禁用属性：disabled -->
+        <button>登录</button>
+        <input type="button" value="提交">
+        <!-- 自动提交内容向服务器 -->
+        <input type="submit"><br>
+        <!-- 单选按钮 必须要有name属性，并且他的属性值相同 -->
+        <input type="radio" name="sex">男
+        <input type="radio" name="sex">女<br>
+        <!-- 多选框 checked选中的状态 -->
+        <input type="checkbox">java
+        <input type="checkbox" checked>web
+        <input type="checkbox">ui<br>
+        <!-- 文本域： 输入大段文字-->
+        <textarea placeholder="请输入文字"></textarea><br>
+        <textarea name="" id="" cols="30" rows="10">
+            <!-- cols：指定文本区域的列数
+                rows：指定文本区域的行数
+                readonly：只读
+             -->
+        </textarea>
+
+        <input type="file"><br>
+        <!-- 文件上传 -->
+        <input type="color"><br>
+        <!-- 颜色选择 -->
+        <input type="range"><br>
+        <!-- 区间范围、进度条 -->
+        <input type="date"><br>
+        <!-- 日期 -->
+        <input type="week"><br>
+        <!-- 周次 -->
+
+        <!-- 下拉选框 selected选中状态 -->
+        <select>
+            <option value="">--请选择--</option>
+            <option value="">天津市</option>
+            <option value="">北京市</option>
+            <option value="" selected>扬州市</option>
+            <option value="">杭州市</option>
+        </select>
+    </form>
+</body>
+</html>

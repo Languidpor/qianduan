@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            background-color: yellow;
+        }
+        p{
+            background-color:blue;
+        }
+        div{
+            font-size:30px;
+            background-color: purple;
+        }
+        #p1{
+            background-color:red;
+        }
+        .d1{
+            color:green;
+        }
+        .d2{
+            font-size: 40px;
+        }
+        #div1{
+            background-color:black;
+        }
+        .div1{
+            background-color:pink;
+        }
+        p,h1,div{
+            /* 群组选择器 */
+            cursor: pointer;
+            /* 设置光标的样式 */
+        }
+        .d1 div{
+            /* 后代选择器 */
+            background-color: aqua;
+        }
+        #l1>div{
+            /* 子代选择器 */
+            font-size: 60px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        h1-h6 p a img span div ol+li ul+li table thead tbody tfoot tr th input button select+option textarea
+        css:内联样式-写到标签上 内部样式-写到head中的style 外部样式-css文件，通过link标签链接到html中-就近原则
+        *-通用选择器-可以匹配页面上的所有标签
+        元素选择器-所有标签都可以作为元素选择器
+        id选择器：#id名{样式}
+        一个页面只能出现一个id名 id名不能重复
+        id名的命名要求：字母数字下划线短横线的组合 但是不能以数字开头
+        类选择器：.类名{}
+        1.类名是可以多次使用的
+        2.可以将多个类选择器应用于同一个元素，各个类名之间用空格
+     -->
+     <p id="p1">扬州大学</p>
+     <p id="p2">扬州大学</p>
+     <div class="d1">白居易
+        <div id="l1">李白
+            <div>杜甫</div>
+        </div>
+     </div>
+     <div class="d1 d2">后羿</div>
+     <!--
+        *通用选择器
+        通过使用元素选择器设置背景颜色为紫色
+        id选择器设置黑色
+        class选择器设置为粉色
+        属性值后面添加! important 可以让这个属性的优先级最高
+
+        id选择器>class选择器>元素选择>*浏览器的缺省设置
+
+        群组选择器：选择器声明以逗号隔开的选择器列表，将一些相同的样式作用于多个元素
+        后代选择器：用于选择作为某元素的后代元素（子元素 孙子元素 ...）
+        选择器之间用空格隔开
+        子代选择器：要求选择器之间只能存在父子关系 两个选择器之间用>
+        伪类选择器：向某些选择器添加效果 使用：作为结合符，
+        结合符左边是选择器，右边是伪类
+        :link 尚未访问连接
+        :visited 访问过连接
+        :hover 鼠标悬停在标签上时
+
+        块级元素可以设置尺寸属性：h1-h6 p div ...
+        行内元素：设置尺寸没有效果
+        边框属性：
+        border：边框的粗细 实线(solid) 颜色值
+    -->
+    <h1>大标题</h1>
+     <div id="div1" class="div1">热热热热热</div>
+</body>
+</html>

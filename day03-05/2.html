@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="1.js"></script>
+</head>
+<body>
+    <!-- 
+        js概述：
+        现状：既可以运行在客户端浏览器，也可以运行在服务器端
+        特点：1.解释性的语言，编译一行，执行一行
+        2.跨平台，支持所有的操作系统
+        3.弱类型语言 int a = 10
+        var a = ' tom'
+        4.基于对象
+        应用场景：制作浏览器端交互效果，创建web服务器，操作数据库
+        js的开发环境：1.浏览器自带js环境
+        2.服务器端的nodejs
+        js语法规范：
+        1.区分大小写
+        2.每行代码结束分号可加可不加，建议加上
+        3.单行注释//  多行注释/**/  ctrl+/
+     -->
+     <script>
+        // 写js代码
+        // 变量：用于存储数据的容器
+        // 声明变量：使用关键字var 声明一个变量
+        // 变量的命名规则：
+        // 可以使用字母、数字、下划线、美元符号，不能以数字开头
+        // 关键字和保留字也不可以做变量名
+        // 变量可以只声明不赋值，此时变量的值是undefined
+        // 一个变量可以多次赋值，并且可以赋不同类型的值，而最终的值是最后一次赋的值
+        // 常量：一旦声明就不能再重新赋值
+        var a = 1;
+        var b;
+        // 一次性声明多个变量，多个变量之间用逗号隔开
+        var name = 'tom', age = 18, s = 8000;
+        console.log(1111);
+        console.log(a,b)
+        age = 28;
+        age = '十八';
+        console.log(age,typeof age);
+        // 使用变量保存圆的半径，常量保存圆周率，计算圆的周长和面积
+        var r = 1;
+        const pi = 3.14;
+        var c,s;
+        c=2*pi*r;
+        s=pi*r*r;
+        console.log(c,s);
+        // 数据类型：原始类型和引用类型
+        // 原始/基本类型：数值型，字符串型，布尔型，未定义型，空
+        // 引用类型：数组，对象，Math...
+        // 数值型：整型和浮点型
+        // 检测数据类型的方法：typeof
+        // 字符串类型：数据被引号包含的就是字符串型，不区分单双引号
+        // 查看任意字符的unicode码：字符.charCodeAt()
+        console.log('学'.charCodeAt()); //23398
+        // 布尔型：true/false 在程序中表示真或者假
+        // 未定义型-undefined 声明了变量未赋值时结果是undefined
+        // 空-null 只有一个值就是null，将来会和引用类型一起使用
+        // null == undefined; //true 
+        // null === undefined; //false
+        // ==只比较值，===不但比较值还比较数据类型
+        var n = null;
+        console.log(typeof n) //object
+        console.log(typeof b) //undefined
+        // 数据类型转换：隐式转换和强制转换
+        // 隐式转换：
+        // 1.数字+字符串：数字会被转换成字符串
+        var z = 2+'3';
+        console.log(2+'4'); //24
+        // 数字+布尔型：布尔值true——1 false——0
+        console.log(3+true); //4
+        // 布尔型+字符串
+        console.log(true+'hello'); //truehello
+        // +:加法运算 字符串拼接
+        var num1 = 3, num2 = true, num3 = 'tedu';
+        console.log(num1+num2+num3); //4tedu
+        console.log(num2+num3+num1); //truetedu3
+        console.log(num3+num1+num2); //tedu3true
+        console.log(num2+num1+num3); //4tedu
+        // 总结：只要和字符串相加，结果都是字符串的拼接
+        // - * / 运算符两端的数据转为数值型，如果转换失败，返回NaN(not a number)不是一个数字，任何值和NaN执行加减乘除，返回的都是NaN
+        console.log(NaN==NaN); //false
+     </script>
+</body>
+</html>

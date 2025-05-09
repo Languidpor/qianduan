@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //变量提升：var声明的变量会把变量提升到所在作用域的最前边
+        //赋值留在原地
+        //作用域：变量的可访问范围
+        var c = 6;
+        console.log(c); //6
+        console.log(m); //undefined
+        var m = 2;
+        console.log(m); //2
+        function a()
+        {
+            // 局部变量
+            var b = 3;
+            console.log(c); //6
+            console.log(b); //3
+        }
+        console.log(b); //报错
+    </script>
+</body>
+</html>
