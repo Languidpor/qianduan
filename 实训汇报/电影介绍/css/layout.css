@@ -1,0 +1,255 @@
+html,body {
+    overflow: hidden;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    /* 设置字体的大小，字体为宋体 */
+    font: 14px/1.8 Georgia, Arial, Simsun;
+}
+
+html {
+    padding: 110px 0;
+}
+
+/* 设置标题的属性 */
+#hd {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background:#999999;
+}
+
+/* 实现左右滑动和上下滑动 */
+#bd {
+    position: absolute;
+    top: 110px;
+    right: 0;
+    bottom: 110px;
+    left: 0;
+    overflow: hidden;
+    width: 100%;
+    _height: 100%;
+}
+#side {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    overflow: auto;
+    width: 260px;
+    _height: 100%;
+    background: #CCCCCC;
+}
+
+/* 设置点击上Tab栏的选项跳转到的页面的属性 */
+#main {
+    position: absolute;
+    _position: static;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 270px;
+	overflow:auto;
+    _overflow: hidden;
+    _height: 100%;
+    _margin-left: 210px;
+    background: #CCCCCC;
+}
+
+/* 设置点击左Tab栏的选项跳转到的页面的属性 */
+#main1 {
+    position: absolute;
+    _position: static;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 270px;
+	overflow:auto;
+    _overflow: hidden;
+    _height: 100%;
+    _margin-left: 210px;
+    background:#ececec;
+}
+#content {
+    _overflow: auto;
+    _width: 100%;
+    _height: 100%;
+}
+
+/* 设置底部区域的属性 */
+#ft {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: #999999;
+}
+
+/* 使得顶部区域居中 */
+.tit-layout {
+    margin: 18px 0 0;
+    font-size: 14px;
+    text-align: center;
+}
+
+/* 小创意 */
+.copyright {
+    font-weight: bold;
+    text-align: center;
+}
+
+/* 设置网页大范围变化区域的属性 */
+#feature {
+    width: 100%;
+    line-height: 4;
+}
+
+/* 设置顶部区域的属性 */
+#feature .hd {
+    padding: 20px 15px;
+}
+
+/* 设置这两种字体在特殊环境下的属性 */
+#feature .hd h2 {
+    margin: 0;
+    font-size: 16px;
+}
+#feature .bd h3 {
+    margin: 0;
+    padding: 0 15px;
+    font-size: 14px;
+}
+
+/* 设置底部区域属性 */
+#feature .ft {
+    padding: 10px 15px 30px;
+}
+
+/* 设置上Tab栏属性 */
+#nav{
+	width:100%;
+	background:#999999;
+	color:#FFFFFF; 
+	font-family:'微软雅黑';
+	text-align:center; 
+	font-size:13px; 
+	font-weight:bold;
+} 
+
+/* 设置超链接和文本的初始属性 */
+#nav a,span {
+	border-left:#CCCCCC 1px solid;
+	display:inline-block;
+	height:40px;
+	line-height:40px;
+	padding:0px 10px;
+	margin-left:-8px;
+} 
+
+/* 设置超链接被操作后的属性 */
+#nav a:link,a:visited,a:active{
+	text-decoration:none;
+	color:#FFFFFF;
+} 
+#nav a:hover {
+	background:#CCCCCC;
+}
+
+/* 优化注册页面的布局 */
+.lg{
+    top: 0;
+    left: 0;
+    bottom: 0;
+    overflow: auto;
+    width: 260px;
+    height: 200px;
+    background:#CCCCCC;
+}
+.reg{
+	float:left;
+	width:480px;
+	height:686px;
+}
+
+/* 设置列表属性 */
+ul{
+	list-style:none;
+	width:auto;
+	background-color:#999999;
+}
+/* 设置超链接属性 */
+a{
+	text-decoration:none;
+	color:#000000;
+}
+/* 设置列表链接属性 */
+.na li a{
+	height:33px;
+	width:auto;
+	line-height:33px;
+	margin-bottom:1px;
+	background-color:#CCCCCC;
+	display:block;
+	text-indent:20px;
+}
+/* 鼠标悬停，当前超链接颜色改变 */
+.na li a:hover{
+	background-color:#999999;
+	color:#FFFFFF;
+}
+
+/* 设置四种类型的带边框线的框用来存储后续插入的图片 */
+.fo{
+	position: relative;
+	text-align:center;
+	float:left;
+	margin-left:5px;
+	margin-top:5px;
+	width:280px;
+	height:400px;
+	border: 1px solid #e9d4d4;
+}
+.fo2{
+	position: relative;
+	text-align:center;
+	float:right;
+	margin-left:5px;
+	margin-top:5px;
+	width:300px;
+	height:450px;
+	border: 1px solid #e9d4d4;
+}
+.fo3{
+	position: relative;
+	text-align:center;
+	float:right;
+	margin-left:5px;
+	margin-top:5px;
+	width:280px;
+	height:400px;
+	border: 1px solid #e9d4d4;
+}
+.fo4{
+	position: relative;
+	text-align:center;
+	float:right;
+	margin-left:5px;
+	margin-top:5px;
+	width:400px;
+	height:280px;
+	border: 1px solid #e9d4d4;
+}
+/* 规定fo,fo2,fo3,fo4中插入图片的格式要求 */
+img{
+	max-width:100%;
+	max-height:100%;
+	position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
