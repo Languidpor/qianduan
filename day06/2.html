@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        数组的API：
+        API：应用程序编程接口，预定义好的一些方法或者函数
+        1.toString()：将数组中的元素按逗号组合成字符串
+        2.join('')：将数组中的元素按指定的字符组合成字符串，默认是逗号
+        3.concat(arr1,arr2)：拼接多个数组
+        4.arr.slice(start,end)：截取元素
+        返回的是一个新数组，包含start到end(不包含)的arr中的元素
+        该方法不会修改数组，而是返回一个子数组
+        注意：1.可使用负数从数组的末尾截取元素
+            2.如果end未被规定，那么slice方法会选取从start到末尾的所有元素
+        5.splice(start,count,value1,value2,...)：删除数组中的元素
+        start为开始下标，count为删除长度，value为删除后补充的元素，count为空删除到最后，start为负数表示倒数，返回值为删除的元素，
+        原数组会发生变化
+        6.push()：往数组的末尾添加元素，返回数组的长度
+        7.pop()：删除数组末尾的元素，返回删除成功的元素
+        8.unshift()：往数组的开头添加元素，返回数组的长度
+        9.shift()：删除数组开头的元素，返回删除成功的元素
+     -->
+     <script>
+        var arr10 = [1,2,3,4,5];
+        arr10.push(10);
+        arr10.pop();
+        arr10.unshift('a');
+        arr10.shift();
+        console.log(arr10);
+
+        // 创建数组a-h 每个字母是一个元素 删除cd 替换f为m 在下标为1的位置插入z
+        var arr5 = ['a','b','c','d','e','f','g','h'];
+        console.log(arr5.splice(2,2));
+        console.log(arr5.splice(-3,1,'m'));
+        console.log(arr5.splice(1,1,'z'));
+        console.log(arr5);
+
+        var arr = [1,2,3,4];
+        var arr1 = [5,6,7,8];
+        console.log(arr.toString());
+        console.log(arr.join('|'));
+        var arr2 = arr.concat(arr1);
+        console.log(arr2);
+        console.log(arr2.slice(1,4));
+        console.log(arr2.slice(-3));
+        // 创建数组包含a-f 每个字母是一个元素，截取ab ef 拼接为新数组
+        var arr3 = ['a','b','c','d','e','f'];
+        var arr4 = arr3.slice(0,2).concat(arr3.slice(-2));
+        console.log(arr4);
+     </script>
+</body>
+</html>

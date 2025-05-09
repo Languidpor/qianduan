@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>购物车</title>
+    <style>
+        table{
+            width: 600px;
+            text-align: center;
+            border-collapse: collapse;
+        }
+        td,th{
+            border: 1px solid black;
+        }
+        tfoot td:last-child{
+            background-color: aquamarine;
+        }
+        tfoot td:first-child{
+            text-align: right;
+        }
+        tbody tr td:last-child{
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        事件：用户手动触发或者浏览器自动触发的页面内容或者状态的改变
+        如何在事件发生时自动执行一项任务：
+        1.每一个元素身上都有一批以on开头的特殊属性-事件属性，所有事件
+        属性一开始都默认为null
+        2.每当点击元素时，浏览器会自动的找到这个元素对应的事件属性，比如
+        单击时候找到onclick事件
+        3.如果我们提前在元素的onxxx属性上保存一个函数，这个函数就是事件
+        处理函数
+        btn.onclick=function(){事件处理函数}
+        注意：事件处理函数，如果不触发事件，是不会执行的
+        问题：在事件处理函数中，想获得当前触发事件的元素本身，都要使用this
+     -->
+    <table id="data">
+        <thead>
+            <tr>
+                <th>商品名称</th>
+                <th>单价</th>
+                <th>数量</th>
+                <th>小计</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>iphone11</td>
+                <td>￥4488.00</td>
+                <td><button>-</button><span>1</span><button>+</button></td>
+                <td>￥4488.00</td>
+            </tr>
+            <tr>
+                <td>iphone13</td>
+                <td>￥5288.00</td>
+                <td><button>-</button><span>1</span><button>+</button></td>
+                <td>￥5288.00</td>
+            </tr>
+            <tr>
+                <td>iphone14</td>
+                <td>￥4288.00</td>
+                <td><button>-</button><span>1</span><button>+</button></td>
+                <td>￥4288.00</td>
+            </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+            <td colspan="3">total:</td>
+            <td>￥14064.00</td>
+        </tr>
+        </tfoot>
+    </table>
+    <script>
+        // 如果查找一个元素的条件比较复杂，选择按选择器查找
+        
+        
+        // 需求：
+        // 1.点击按钮 数量改变
+
+        // 1.查找触发事件的元素//button
+        // 1.1先找到id为data的table
+        var table = document.getElementById('data')
+
+        // 1.2在table内查找所有的button
+        var btns = table.getElementsByTagName('button');
+        console.log(btns);
+        // 2.绑定事件处理函数 //绑定单击事件
+        // 2.1 遍历btns 给每个button绑定onclick事件，绑定函数
+        for(var btn of btns){
+            btn.onclick=function(){
+             // 3.查找要修改的元素 //span
+             //3.1查找当前按钮(this)的爹的第二个孩子 
+             var span = this.parentElement.children[1];
+             console.log(span);
+            //   span.innerHTML=n
+             // 3.2把内容转为数值型，保存到变量n中
+             var n =Number(span.innerHTML);
+
+            //  3.3做计算 如果当前按钮内容是+ n++ 否则n--
+            if(this.innerHTML == '+'){
+                n++
+            }else if(n>1){
+                n--
+            }
+             // 4.修改元素//
+             // 4.1把新值放回span的内容中
+             span.innerHTML = n;
+            // 2.数量改变 影响小计
+
+            //3.查找要修改的元素  
+            //3.1当前按钮的爹的下一个兄弟元素 td
+            var subTd = this.parentElement.nextElementSibling;
+            console.log(subTd);
+            // 4.修改元素
+            // 4.1获得单价price 转为数字
+            // 4.2当前按钮的爹的前一个兄弟元素 截取人民币符号 转为数字
+            var price =Number( this.parentElement.previousElementSibling.innerHTML.slice(1));
+            console.log(typeof price);
+            console.log(price);
+            // 4.3用单价price和数量n 计算出小计
+            var sub = price * n;
+            // 4.4放回小计的单元格中
+            subTd.innerHTML ='￥'+ sub.toFixed(2);
+            // 3.小计改变 影响总计
+            // 只查找一个符合要求的元素
+            // var 一个元素对象 = 任意父元素.querySelector('选择器')
+            // 查找多个符合要求的元素
+            // var 类数组对象=任意父元素.querySelectorAll('选择器')
+             
+            // 3.1 查找要修改的元素 tfoot td:last-child
+            var totalTd=table.querySelector('tfoot td:last-child');
+            console.log(totalTd)
+            // 3.2 查找tbody中的每行的最后一个单元格 获取值
+            var subTds=table.querySelectorAll('tbody tr td:last-child');
+            console.log(subTds);
+            var total=0;
+            for(var td of subTds){
+                total+=parseInt(td.innerHTML.slice(1));
+            }
+            // 累加
+            // 3.3 把累加和赋值到总计单元格中  
+            totalTd.innerHTML ='￥'+ total.toFixed(2);
+
+            }
+
+        }
+
+        
+
+
+
+
+        
+       
+    </script>
+</body>
+</html>

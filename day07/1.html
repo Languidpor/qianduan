@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        ES6：块级作用域
+        使用let关键字去声明变量，阻止变量提升，添加到块级作用域中成为局部变量
+        块级作用域：{} if else while for ...
+        参数增强：
+        function add(a,b,c=0){ // 一般是给最后一个参数设置默认值
+        }
+        add(1,2);
+        箭头函数：回调函数的另一种说法，但是不等价于匿名函数
+        function add(a,b){
+            return a+b;
+        }
+        add(a,b){
+            return a+b;
+        }
+        add(a,b) => return a+b;
+        add(a,b) => a+b;
+        模板字符串：`在模板字符串之间放任何形式的字符${js表达式}`
+     -->
+     <script>
+        // console.log(a);
+        // let a = 4;
+        var ename='苹果电脑';
+        console.log('名称：'+ename);
+        console.log(`名称：${ename}`);
+        // 创建一个人的对象，包含人的姓名、性别、年龄
+        // 模板字符串打印个人介绍
+        var name='张三';
+        var gender='男';
+        var age=20;
+        console.log(`姓名：${name},性别：${gender},年龄：${age}`);
+        console.log(`姓名：${name}`,`性别：${gender}`,`年龄：${age}`);
+        var person = {
+            name:'Tom',
+            sex:'男',
+            age:26
+        }
+        console.log(`姓名：${person.name}`,`性别：${person.sex}`,`年龄：${person.age}`);
+     </script>
+</body>
+</html>

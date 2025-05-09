@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            width: 700px;
+        }
+        td span{
+            color: red;
+        }
+        .vail_info{
+            display: none;
+        }
+        .vail_success,.vali_fail{
+            background-repeat: no-repeat;
+            background-position: left center;
+            display: block;
+        }
+        .vail_success{
+            background-image: url(./images/4.png);
+            width: 0;
+            height: 20px;
+            overflow: hidden;
+            padding-left: 20px;
+        }
+        .vail_fail{
+            background-image: url(./images/3.png);
+            border: 1px solid red;
+            background-color: #ddd;
+            color: red;
+            padding-left: 30px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        修改样式：1.修改内联样式
+        元素.style.css属性名='属性值'
+        问题：有些css是带- js中除了减法不允许随便使用- 因为容易混淆，DOM规定所有带-的css属性，一律去横线变驼峰
+        问题：实际开发中修改一些元素的样式，可能同时修改多个css属性，如果用.style修改，会很繁琐
+        解决办法：通过修改class 批量的修改一个元素的多个css属性
+        1.先在css中定义好不同场景的样式类预案
+        2.再在js中通过元素.className=样式类 一句话可以更换多个css属性
+     -->
+     <h1 id="c1">welcome</h1>
+
+     <form action="">
+        <h2>增加管理员</h2>
+        <table>
+            <tr>
+                <td>姓名：</td>
+                <td>
+                    <input type="text">
+                    <span>*</span>
+                </td>
+                <td>
+                    <div class="vail_info">
+                        10个字符以内的数字，字母或下划线的组合
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>密码：</td>
+                <td>
+                    <input type="text">
+                    <span>*</span>
+                </td>
+                <td>
+                    <div class="vail_info">
+                        6位数字
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </form>
+     <script>
+        // var h = document.getElementById('c1');
+        // h.style.color='red';
+        // h.style.backgroundColor='green';
+        var inputName = document.getElementsByTagName('input')[0];
+        console.log(inputName);
+        inputName.onblur=function(){
+            var div = this.parentElement.nextElementSibling.children[0];
+            console.log(div);
+            // 正则表达式
+            var reg = /^\w{1,10}$/;
+            if(reg.test(this.value)==true){
+                div.className='vail_success';
+            } else{
+                div.className='vail_fail';
+            }
+        }
+     </script>
+</body>
+</html>

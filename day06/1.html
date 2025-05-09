@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        if-else嵌套
+        if(条件表达式){
+            语句1
+        } else if(条件表达式){
+            语句2
+        } else{
+            语句n+1 //以上所有的条件为false的时候执行
+        }
+        switch-case
+        switch(表达式){
+            case值1:
+            语句1;
+            break;
+            ...
+            case值n:
+            语句n;
+            break;
+            default:
+            语句n+1;
+        }
+        注意：switch表达式的值和case中的值必须是全等的(===)
+        才会执行该语句
+        循环执行：
+        while do-while for
+        while(循环条件){循环体}
+        do{循环体}while(循环条件)
+        for(var i=0;i<10;i++){}
+
+        函数：系统函数(parseInt,parseFloat,Number,alert,isNaN-判断一个值是否是NaN,如果是则返回true,否则返回false)和自定义函数
+        function：功能体，函数(方法)，封装反复执行的代码
+        function 函数名称(){
+            函数体; //要封装的代码
+        }
+        // 调用
+        函数名称()
+        带有参数的函数:
+        function 函数名(形参列表){
+            函数体;
+        }
+        函数名(实参列表)
+        带有返回值的函数
+        function 函数名(参数列表){
+            函数体;
+            return 值; //函数执行完返回的结果
+        }
+        调用：
+        函数名(参数列表)
+        注意：如果函数中没有return或者return中没有任何的值
+        返回的都是undefined，执行完return后的代码不会再执行
+        作用域：变量或者函数的可访问范围
+        全局作用域：在全局使用var声明变量，可以在任意的范围访问到
+        函数作用域：在函数内部使用var声明的变量，只能在函数内部访问
+        在函数内部不使用var声明的变量，默认是全局变量，可以在函数外部访问--不推荐这样写
+        匿名函数：没有函数名称的函数
+        function add(){ //函数声明 }
+        var f1 = function(){
+            函数表达式
+            变量名就是函数名称 
+        }
+        f1()
+        函数声明和函数表达式的区别：
+        函数声明创建的函数存在变量提升，也存在函数提升
+        函数表达式不存在函数提升，只存在变量提升
+
+        匿名函数自调用：目的：创建函数作用域把变量包裹起来防止全局污染
+        （function(参数列表){
+            函数体;
+        })(实参);
+        回调函数：把匿名函数以实参的形式传递，意味着形参就是匿名函数的函数名称
+        function fn(a){
+            a = function(){...}
+            //  调用fn的时候，匿名函数赋值给参数a，a就是函数名称
+            a();
+            // 执行传递的匿名函数的函数体中的代码
+        }
+        fn(function(){...})
+
+        对象：属于引用类型，是一组属性和方法的集合
+        JS中的对象：
+        内置对象：JS提供的
+        宿主对象：DOM对象(宿主是浏览器)、http对象(宿主也是浏览器)
+        自定义对象：自己创建的对象
+        1.对象字面量创建对象
+        var obj = {// 使用大括号创建空对象
+            color:'玫红',
+            brand:'华为',
+            madeIn:'中国'
+            //'made-in':'中国'
+        }
+        注意：1.属性名与属性之间用:
+        2.多组属性之间用,隔开
+        3.属性名的引号可加可不加，如果含有特殊字符必须加上访问对象中的属性
+        对象，属性名 obj.color
+        对象['属性名'] obj['brand']
+        访问一个不存在的属性 结果是undefined
+        内置构造函数创建函数
+        var obj = new Object(); //创建一个空对象
+        需要单独为对象添加每一个属性
+        obj.name='张三';
+        obj.age=18;
+        obj.class1='211';
+        遍历对象中的属性
+        for(var key in 对象){
+            key代表对象中的每一个属性名
+            obj[key]为通过属性名获得的属性值
+        }
+        判断对象中是否包含某个属性
+        1.对象，属性名===undefined 返回true说明不存在 false表示存在
+        2.对象，hasOwnProperty('属性名') 返回true表示存在 false表示不存在
+        3.属性名 in 对象名 返回true标配是存在 false表示不存在
+
+        引用类型的数据存储：是把地址赋值一份到另外的对象，ran和dong指向同一对象
+        var ran = {
+            color:'red';
+            size:'xxL'
+        }
+        var dong = red;
+        dong.color='green';
+        dong.size='M';
+
+        对象中的方法：
+        var person = {
+            ename:'tom',
+            say:function(){
+                this.ename
+                // 访问当前所在对象的属性名 this指代当前所在的对象
+            }
+        }
+        person.say()
+        数组：由多个元素组成的集合，每个元素就是一个数据
+        1.数组字面量创建数组：
+        [元素1,元素2,...]
+        var arr=[1,2,3,4]; arr[5]=undefined
+        2.内置构造函数创建数组：
+        new Array(元素1,元素2)
+        var arr = new Array('中国','美国','印度')
+        new Array()
+        访问数组中的元素
+        数组名[下标] 下标从0开始 不存在的元素返回undefined
+        数组的长度：
+        数组名.length 获取数组中的元素个数
+        在数组的末尾添加元素 数组[数组.length]=值 arr[4]=8
+        数组的分类：关联数组和索引数组
+        索引数组：以0或者0以上的整数作为下标
+        关联数组：以字符串作为下标，只能单独地添加元素
+        遍历数组：
+        for-in：既可以遍历所有数组，也可以遍历关联数组
+        for(var key in 数组){
+            key 下标
+            数组[key] 下标对应的元素
+        }
+        for循环：只能遍历索引数组
+        for(var i=0;i<数组.length;i++){i下标 数组[i] i对应的元素}
+        for-of
+     -->
+     <script>
+        // 创建数组包含多个课程，将所有课程名称为js的修改为javascript
+        // 创建数组包含一组成绩，遍历数组找到最大值
+        var arr1 = ['js','html','css','js','java'];
+        for(var i=0;i<arr1.length;i++){
+            if(arr1[i]=='js'){
+                arr1[i]='javascript';
+            }
+        }
+        console.log(arr1);
+        var arr3 = [55,63,52,41];
+        var max=arr3[0];
+        for(var i=0;i<arr3.length;i++){
+            if(max<arr3[i]){
+                // 如果max小于任意一个元素，则把该元素放入到max
+                max=arr3[i];
+            }
+        }
+        // 创建数组包含一组商品的数据，其中每条数据包含的属性有编号、标题、价格
+        var lap = [
+            {
+                lid:1,
+                title:'联想',
+                price:3999
+            },
+            {
+                lid:2,
+                title:'小米',
+                price:5999
+            },
+            {
+                lid:3,
+                title:'华为',
+                price:7999
+            }
+        ];
+        for(var key of lap){
+            // key是数组的每个元素
+            console.log(key.title);
+        }
+        console.log(lap);
+
+        //  关联数组
+        var p = [];
+        p['name']='冉冉';
+        p['age']=18;
+        console.log(p);
+        var arr = new Array();
+        arr[0]='java';
+        arr[1]='CPP';
+        console.log(arr);
+        // 创建一个圆的对象 保存半径和圆周率 添加计算周长和面积 调用
+        var circle1 = {
+            PI:3.14,
+            r1:2,           
+            C:function(){
+                return 2*this.PI*this.r1;
+            },           
+            S:function(){
+                return this.PI*this.r1*this.r1;
+            }
+        }
+        console.log(circle1.C());
+        console.log(circle1.S());
+
+        var ran = {
+            color:'red',
+            size:'xxL'
+        }
+        var dong = ran;
+        dong.color='green';
+        dong.size='M';
+        console.log(dong);
+        console.log(ran);
+        var a1 = 6;
+        var b1 = a1;
+        // 复制了a1的副本……
+        console.log(a1);
+        console.log(b1);
+        // 声明变量保存商品对象，包含商品的名称、价格
+        // 如果产地属性不存在，添加该属性；如果价格属性存在，在原来的价格上-1000，最后打印对象
+        var laptop = {
+            Iname:'戴尔笔记本电脑',
+            price:5999,
+        }
+        if(laptop.madeIn===undefined){
+            laptop.madeIn='北京';
+        }
+        if(laptop.hasOwnProperty('laptop.price')){
+            laptop.sale-=1000;
+            console.log(laptop['price']);
+        }
+        console.log(laptop);
+
+        // 创建学生对象，包含多个成绩属性，遍历对象的属性，计算总成绩和平均成绩
+        var student = {
+            s1:90,
+            s2:80,
+            s3:70,
+            s4:50
+        }
+        var sum=0;
+        var count=0;
+        for(var key in student){
+            sum+=student[key];
+            count++; // 每次遍历加1
+        }
+        console.log(sum/count);
+
+        var obj1 = new Object();
+        obj1.name='张三';
+        obj1.age=18;
+        obj1.class1='211';
+        console.log(obj1) 
+
+        var obj = {// 使用大括号创建空对象
+            color:'玫红',
+            brand:'华为',
+            madeIn:'中国'
+            //'made-in':'中国'
+        }
+        console.log(obj['brand']);
+        console.log(obj.age);
+
+        // 创建一本图书对象 包含属性有编号 标题 价格 作者
+        // 打印图书的标题 修改图书的价格 添加出版社的属性 打印对象
+        var book = {
+            bid:1,
+            title:'DOM编程艺术',
+            price:45,
+            writer:'TOM',
+        }
+        console.log(book['title']);
+        book['price']=35;
+        console.log(book.price);
+        book.publish='北京出版社';
+        console.log(book['publish']);
+        console.log(book);
+
+        function fn6(a){
+            a();
+        }
+        fn6(function(){
+            console.log(123);
+        })
+
+        function fun4(){
+            var m1=m2=m3=5;
+        }
+        fun4();
+        console.log(m3); //5
+        console.log(m2); //5
+        //console.log(m1); //报错
+        var n = 5;
+        function fun5(){
+            console.log(n); //undefined
+            var n = 8;
+            console.log(n); //8
+        }
+        fun5();
+
+        var m = 1;
+        function fn(m){
+            m+=3;
+            console.log(m);
+        }
+        fn(5);
+        console.log(m);
+
+        function fun3(A,B,C){
+            var n = A+B+C;
+            return n;
+        }
+        console.log(fun3(1,2,3));
+
+        function a(a,b,c){
+            // 形参是一个局部变量
+            console.log(c);
+            console.log(a+b+c);
+        }
+        a(1,2); //NaN
+        console.log(a); //报错
+        // 如果形参未被赋值，值是undefined
+
+        var a = 3;
+        function fun(){
+            var a = 2;
+            function fun1(){
+                var a = 1; //不是局部变量，只是把全局变量重新赋值了
+                console.log(a); //1
+            }
+            fun1();
+        }
+        fun();
+        console.log(a); //3
+     </script>
+</body>
+</html>

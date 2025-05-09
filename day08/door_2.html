@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            float: left;
+            height: 100px;
+            line-height: 100px;
+        }
+        #d1,#d3{
+            background-color: #ccff00;
+        }
+        #d2{
+            background-color: #ffcc00;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="d1">main</div>
+    <div id="d2">&lt;&lt;</div>
+    <div id="d3">detail</div>
+    <script>
+        // 用户点d2触发事件
+        var d2 = document.getElementById('d2');
+        // 绑定事件处理函数
+        d2.onclick = function(){
+            // 查找id
+            var d1 = document.getElementById('d1');
+            // 如果d2的内容是>> 说明d1是关着的，就打开d1，其实就是让d1显示出来，去掉d1的display属性
+            // d2的内容变为<<
+            // 否则就是d1是开着的 那就关闭d1，其实是让d1隐藏 设置d1的display属性为none
+            // 让d2内容变为>>
+            if(d2.innerHTML=='&gt;&gt;'){
+                d1.style.display='';
+                d2.innerHTML='&lt;&lt;';
+            } else{
+                d1.style.display='none';
+                d2.innerHTML='&gt;&gt;';
+            }
+        }
+    </script>
+</body>
+</html>

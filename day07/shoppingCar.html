@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>购物车</title>
+    <style>
+        table{
+            width: 600px;
+            text-align: center;
+            border-collapse: collapse;
+        }
+        td,th{
+            border:1px solid black;
+        }
+        tfoot td:last-child{
+            background-color: aquamarine;
+        }
+        tfoot td:first-child{
+            text-align: right;
+        }
+        tbody tr td:last-child{
+            background-color:pink;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        事件：用户手动触发或者浏览器自动触发的页面内容或者状态的改变
+        如何在事件发生时自动执行一项任务：
+        1.每一个元素身上都有一批以on开头的特殊属性-事件属性，所有属性一开始都默认为null
+        2.每当点击元素时，浏览器会自动的找到这个元素对应的事件属性，比如单机时候找到onclick事件
+        3.如果我们提前在元素的onxxx属性上保存一个函数，这个函数就是事件处理函数
+        btn.onclick=function(){
+            事件处理函数
+        }
+        注意：事件处理函数，如果不触发事件，是不会执行的
+        问题：在事件处理函数中，想获得当前触发事件的元素本身，都要使用this
+     -->
+     <table id="data">
+        <thead>
+            <tr>
+                <th>商品名称</th>
+                <th>单价</th>
+                <th>数量</th>
+                <th>小计</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>iphone11</td>
+                <td>￥4488.00</td>
+                <td><button>-</button><span>1</span><button>+</button></td>
+                <td>￥4488.00</td>
+            </tr>
+            <tr>
+                <td>iphone13</td>
+                <td>￥5288.00</td>
+                <td><button>-</button><span>1</span><button>+</button></td>
+                <td>￥5288.00</td>
+            </tr>
+            <tr>
+                <td>iphone14</td>
+                <td>￥4288.00</td>
+                <td><button>-</button><span>1</span><button>+</button></td>
+                <td>￥4288.00</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3">total:</td>
+                <td>￥14064.00</td>
+            </tr>
+        </tfoot>
+     </table>
+     <script>
+        // 需求：
+        // 1.点击按钮，数量改变
+        // 1.1查找触发事件的元素 //button
+        // 1.2先找到id为data的table
+        var table = document.getElementById('data');
+        // 1.3在table内查找所有的button
+        var btns = table.getElementsByTagName('button');
+        console.log(btns);
+        // 2.绑定事件处理函数 // 绑定单击事件
+        // 2.1遍历btns，给每个button绑定onclick事件，绑定函数
+        for(var btn of btns){
+            btn.onclick=function(){
+                // 3.查找要修改的元素 //span
+                // 3.1查找当前按钮(this)的爹的第二个儿子
+                var span = this.parentElement.children[1];
+                console.log(span);
+                // span.innerHTML=n;
+                // 3.2把内容转为数值型，保存到变量n中
+                var n = Number(span.innerHTML);
+                // 3.3做计算 如果当前按钮内容是+ n++ 否则n--
+                if(this.innerHTML=='+'){
+                    n++;
+                } else{
+                    n--;
+                }
+                // 4.修改元素
+                // 4.1把新值放回span的内容中
+                span.innerHTML = n;
+                // 4.2数量改变 影响小计
+                // 5.查找要修改的元素
+                // 5.1当前按钮的爹的下一个兄弟元素td
+                var subTd = this.parentElement.nextElementSibling;
+                console.log(subTd);
+                // 6.修改元素
+                // 6.1获得单价price转为数字
+                // 6.2当前按钮的爹的前一个兄弟元素 截取人民币符号 转为数字
+                var price = Number(this.parentElement.previousElementSibling.innerHTML.slice(1));
+                console.log(typeof price);
+                console.log(price);
+                // 6.3用单价price和数量n计算出小计
+                var sub = price*n;
+                // 6.4放回小计的单位格中
+                subTd.innerHTML = '￥'+sub.toFixed(2);
+            }
+        }
+        // 小计改变 影响总计
+     </script>
+</body>
+</html>
